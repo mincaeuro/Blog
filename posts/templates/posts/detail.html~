@@ -1,0 +1,84 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>{{ prispevok.title }}</title>
+<meta name="description" content="{{ prispevok.title }}">
+<style>
+span.stars, span.stars span {
+    display: block;
+    background: url(http://kubyshkin.ru/samples/star-rating/star.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars span {
+    background-position: 0 0;
+}
+
+</style>
+
+
+<head>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script src="https://webcam.minirobota.sk/libs/html-kick/js/kickstart.js"></script>
+<link rel="stylesheet" href="https://webcam.minirobota.sk/libs/html-kick/css/kickstart.css" media="all" /> 
+
+
+
+</head>
+<body>
+<ul class="breadcrumbs">
+<li><a href="/">Home</a></li>
+<li><a href="{% url 'detail' prispevok.id %}">{{ prispevok.title }}</a></li>
+</ul>
+
+<h1>{{ prispevok.title }}</h1>
+
+<ul class="tabs left">
+<li><a href="#tabr1">Popis</a></li>
+<li><a href="#tabr2">Obrazky</a></li>
+</ul>
+<div id="tabr1" class="tab-content">
+<p>{{ prispevok.text }}</p>
+
+<p>
+Rating: <span class="stars">{{prispevok.hodnotenie}}</span>
+</p>
+<ul>
+
+<hr />
+<h5> komentar</h5>
+<ul>
+{% for kompentar in prispevok.choice_set.all %}
+	<li>{{ kometar.text }} <br />By {{ kometar.user }}</li>
+
+{% endfor %}
+</ul>
+</div>
+<div id="tabr2" class="tab-content">
+<img src="{{prispevok.image}}" />
+</div>
+
+</body>
+
+<script>
+$.fn.stars = function() {
+    return $(this).each(function() {
+        // Get the value
+        var val = parseFloat($(this).html());
+        // Make sure that the value is in 0 - 5 range, multiply to get width
+        var size = Math.max(0, (Math.min(5, val))) * 16;
+        // Create stars holder
+        var $span = $('<span />').width(size);
+        // Replace the numerical value with stars
+        $(this).html($span);
+    });
+}
+$(function() {
+    $('span.stars').stars();
+});
+</script>
+
+</html>
