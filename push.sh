@@ -1,5 +1,5 @@
 #!/bin/bash
-d=`date +%y-%m-%d`
+d=`date +%y-%m-%d-%H-%M-%S`
 
 git add .
 git config user.name "mincaeuro"
