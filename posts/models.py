@@ -18,7 +18,8 @@ class Prispevok(models.Model):
 	user = models.CharField(max_length=50)
 	image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
 	hodnotenie = models.CharField(max_length=1)
-	#postID = models.IntegerField(blank=False, unique=True, default=uuid.uuid4)
+	def __str__(self):              # __unicode__ on Python 2
+        	return self.title
 	
 	def was_published_recently(self):
 		return self.pub_date >= timezone.now() - datetime.timedelta(days=3)

@@ -51,14 +51,14 @@ Rating: <span class="stars">{{prispevok.hodnotenie}}</span>
 <hr />
 <h5> komentar</h5>
 <ul>
-{% for kompentar in prispevok.choice_set.all %}
-	<li>{{ kometar.text }} <br /><i>By {{ kometar.user }}</i></li>
+{% for kompentar in kompentars %}
+	<li>{{ kometar.text }} <br /><i>Posted on {{ komentar.pub_date }}by {{ kometar.user }}</i></li>
 
 {% endfor %}
 </ul>
 </div>
 <div id="tabr2" class="tab-content">
-<img src="{{prispevok.image}}" />
+<a href="{{prispevok.image}}" target="_blank"><img src="{{prispevok.image}}" /></a>
 </div>
 
 </body>
