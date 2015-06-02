@@ -49,9 +49,9 @@ Rating: <span class="stars">{{prispevok.hodnotenie}}</span>
 <ul>
 
 <hr />
-<h5> komentar</h5>
+<h5> komenty</h5>
 <ul>
-{% for kompentar in kompentars %}
+{% for komentar in komentars %}
 	<li>{{ kometar.text }} <br /><i>Posted on {{ komentar.pub_date }}by {{ kometar.user }}</i></li>
 
 {% endfor %}
