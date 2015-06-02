@@ -51,14 +51,12 @@ Rating: <span class="stars">{{prispevok.hodnotenie}}</span>
 <hr />
 <h5> komenty</h5>
 <ul>
-{% if komentar in komentar.choice_set.all %}
-	<li>{{ kometar.text }} <br /><i>Posted on {{ komentar.pub_date }}by {{ kometar.user }}</i></li>
+{% for komentar in prispevok.komentar %}
+	<li>{{ komentar.text }} <br /><i>Posted on {{ komentar.pub_date }}by {{ komentar.user }}</i></li>
 
 {% endfor %}
 </ul>
-{% else %}
-    <p>Ziadne komenty niesu dostupne.</p>
-{% endif %}
+
 
 </div>
 <div id="tabr2" class="tab-content">

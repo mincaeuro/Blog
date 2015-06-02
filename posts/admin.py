@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Kometar, Prispevok
+from .models import Komentar, Prispevok
 
 # Register your models here.
 
@@ -28,4 +28,4 @@ class KomentAdm(admin.ModelAdmin):
 	
 
 admin.site.register(Prispevok, PrispevokAdm)
-admin.site.register(Kometar, KomentAdm)
+admin.site.register(Komentar, KomentAdm)

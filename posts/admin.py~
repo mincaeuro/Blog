@@ -20,7 +20,12 @@ class PrispevokAdm(admin.ModelAdmin):
 	list_display = ('title', 'pub_date','user', 'was_published_recently')
 	list_filter = ['pub_date']
 	search_fields = ['title']
+
+class KomentAdm(admin.ModelAdmin):
+	list_display = ('text', 'pub_date','user', 'was_published_recently')
+	list_filter = ['pub_date']
+	search_fields = ['text']
 	
 
 admin.site.register(Prispevok, PrispevokAdm)
-admin.site.register(Kometar)
+admin.site.register(Kometar, KomentAdm)

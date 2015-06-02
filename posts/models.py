@@ -27,9 +27,9 @@ class Prispevok(models.Model):
 	was_published_recently.boolean = True
 	was_published_recently.short_description = 'Published recently?'
 
-class Kometar(models.Model):
+class Komentar(models.Model):
 	id = models.AutoField(primary_key=True)
-	postRef = models.ForeignKey(Prispevok, blank=False, default=uuid.uuid4)
+	postRef = models.ForeignKey(Prispevok, default=uuid.uuid4)
 	text = models.TextField(max_length=3000)
 	pub_date = models.DateTimeField('date published')
 	user = models.CharField(max_length=50)
