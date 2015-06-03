@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render_to_response, render
 from django.template import RequestContext
 from .models import Prispevok, Komentar
 from django.core.urlresolvers import reverse
+from django.conf import settings
 
 
 

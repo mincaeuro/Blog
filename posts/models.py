@@ -16,7 +16,7 @@ class Prispevok(models.Model):
 	text = models.TextField(max_length=3000)
 	pub_date = models.DateTimeField('date published')
 	user = models.CharField(max_length=50)
-	image = models.ImageField(upload_to='kkt')
+	image = models.ImageField(upload_to='photos')
 	hodnotenie = models.CharField(max_length=1)
 	def __str__(self):              # __unicode__ on Python 2
         	return self.title

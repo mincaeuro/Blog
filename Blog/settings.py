@@ -102,5 +102,5 @@ USE_TZ = True
 
 STATIC_ROOT = "/home/user/Blog/static/"
 STATIC_URL = '/static/'
-MEDIA_ROOT = "/photos/"
-MEDIA_URL = "/home/user/Blog/photos/"
+MEDIA_ROOT = "/home/user/Blog/"
+MEDIA_URL = "/photos/"
