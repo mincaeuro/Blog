@@ -3,10 +3,10 @@ import os
 import uuid
 import datetime
 from django.utils import timezone
+from django.conf import settings
 
 
-def get_image_path(instance, filename):
-	return os.path.join('photos', str(instance.id), filename)
+	
 
 # Create your models here.
 
@@ -16,7 +16,7 @@ class Prispevok(models.Model):
 	text = models.TextField(max_length=3000)
 	pub_date = models.DateTimeField('date published')
 	user = models.CharField(max_length=50)
-	image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
+	image = models.ImageField(upload_to='kkt')
 	hodnotenie = models.CharField(max_length=1)
 	def __str__(self):              # __unicode__ on Python 2
         	return self.title

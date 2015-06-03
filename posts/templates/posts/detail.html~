@@ -53,7 +53,7 @@ Rating: <span class="stars">{{prispevok.hodnotenie}}</span>
 <ul>
 
 {% if komentar %}
-{% for komentar in prispevok.komentar %}
+{% for komentar in komentar %}
 	<li>Post: {{ komentar.text }} <br /><i>Posted on {{ komentar.pub_date }}by {{ komentar.user }}</i></li>
 
 {% endfor %}

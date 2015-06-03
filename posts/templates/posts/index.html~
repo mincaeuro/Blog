@@ -17,6 +17,12 @@ span.stars span {
 i {
 color:gray;
 }
+a {
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
 
 </style>
 
@@ -47,7 +53,10 @@ color:gray;
     <p>Ziadne prispevky niesu dostupne.</p>
 {% endif %}
 
+<!--
 <footer>copyright (C)</footer>
+-->
+
 </body>
 
 </html>
