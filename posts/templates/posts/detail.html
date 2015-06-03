@@ -51,12 +51,16 @@ Rating: <span class="stars">{{prispevok.hodnotenie}}</span>
 <hr />
 <h5> komenty</h5>
 <ul>
-{% for komentar in prispevok.komentar %}
+
+{% if komentar %}
+{% for komentar in komentar %}
 	<li>Post: {{ komentar.text }} <br /><i>Posted on {{ komentar.pub_date }}by {{ komentar.user }}</i></li>
 
 {% endfor %}
 </ul>
-
+{% else %}
+    <p>ziaden komentar.</p>
+{% endif %}
 
 </div>
 <div id="tabr2" class="tab-content">
