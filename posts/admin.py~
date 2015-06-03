@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Kometar, Prispevok
+from .models import Komentar, Prispevok
 
 # Register your models here.
 
@@ -22,10 +22,10 @@ class PrispevokAdm(admin.ModelAdmin):
 	search_fields = ['title']
 
 class KomentAdm(admin.ModelAdmin):
-	list_display = ('text', 'pub_date','user', 'was_published_recently')
+	list_display = ('text', 'pub_date','user', 'was_published_recently', 'PostRef')
 	list_filter = ['pub_date']
 	search_fields = ['text']
 	
 
 admin.site.register(Prispevok, PrispevokAdm)
-admin.site.register(Kometar, KomentAdm)
+admin.site.register(Komentar, KomentAdm)

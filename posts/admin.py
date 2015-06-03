@@ -22,7 +22,7 @@ class PrispevokAdm(admin.ModelAdmin):
 	search_fields = ['title']
 
 class KomentAdm(admin.ModelAdmin):
-	list_display = ('text', 'pub_date','user', 'was_published_recently')
+	list_display = ('text', 'pub_date','user', 'was_published_recently', 'postRef')
 	list_filter = ['pub_date']
 	search_fields = ['text']
 	

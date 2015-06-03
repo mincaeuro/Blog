@@ -52,7 +52,7 @@ Rating: <span class="stars">{{prispevok.hodnotenie}}</span>
 <h5> komenty</h5>
 <ul>
 {% for komentar in prispevok.komentar %}
-	<li>{{ komentar.text }} <br /><i>Posted on {{ komentar.pub_date }}by {{ komentar.user }}</i></li>
+	<li>Post: {{ komentar.text }} <br /><i>Posted on {{ komentar.pub_date }}by {{ komentar.user }}</i></li>
 
 {% endfor %}
 </ul>

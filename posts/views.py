@@ -12,13 +12,14 @@ def index(request):
 
 def detail(request, post_id):
 	prispevok = get_object_or_404(Prispevok, pk=post_id)
-	return render(request, 'posts/detail.html', {'prispevok': prispevok})
+	komentar = get_object_or_404(Komentar, postRef=post_id)
+	results = {'prispevok': prispevok,'komentar': komentar}
+	return render(request, 'posts/detail.html', results)
 
 #def detail(request, post_id):
-#    prispevok = Prispevok.objects.all().order_by('pub_date')
-#    komentar = Komentar.objects.all().order_by('pub_date')
+#    prispevok = Prispevok.objects.get(pk=post_id)
+    #prispevok = Prispevok.objects.all().order_by('pub_date')
+#    komentar = Komentar.objects.get(postRef = post_id)
 #    context = {'prispevok': Prispevok,'komentar': komentar}
 #    return render(request, 'posts/detail.html', context)
-
-	
 
