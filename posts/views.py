@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render_to_response, render
 from django.template import RequestContext
 from .models import Prispevok, Komentar
+from django.core.urlresolvers import reverse
 
 
 
@@ -16,8 +17,8 @@ def index(request):
 def detail(request, post_id):
     prispevok = Prispevok.objects.all().order_by('pub_date')
     komentar = Komentar.objects.all().order_by('pub_date')
-    c = RequestContext(request, {'prispevok': prispevok,'komentar': komentar})
-    return render_to_response('posts/detail.html', c)
+    context = {'prispevok': prispevok,'komentar': komentar}
+    return render(request, 'posts/detail.html', context)
 
 	
 
