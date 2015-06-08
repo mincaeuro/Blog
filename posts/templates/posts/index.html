@@ -4,6 +4,15 @@
 <title>Welcome</title>
 <meta name="description" content="Welcome">
 <style>
+	
+body {
+	font-family: arial;
+}
+
+body h1 {
+	font-family: helvetica;
+}
+
 span.stars, span.stars span {
     display: block;
     background: url(http://kubyshkin.ru/samples/star-rating/star.png) 0 -16px repeat-x;
@@ -22,6 +31,10 @@ a {
 }
 a:hover {
 	text-decoration:underline;
+}
+footer {
+	padding:5px;
+	font-family: arial;
 }
 
 </style>
@@ -46,16 +59,20 @@ a:hover {
 {% if posledne_prispevky %}
     <ul class="alt">
     {% for prispevok in posledne_prispevky %}
-       <li><a href="{% url 'detail' prispevok.id %}">{{ prispevok.title }}</a> <i>posted by</i> "{{prispevok.user}}"</li>
+       <li><a href="{% url 'detail' prispevok.id %}">Title: {{ prispevok.title }}</a> 
+       <p>{{ prispevok.text }}</p>
+	<br /><i>posted by</i> "{{prispevok.user}}"</li>
     {% endfor %}
     </ul>
 {% else %}
     <p>Ziadne prispevky niesu dostupne.</p>
 {% endif %}
 
-<!--
-<footer>copyright (C)</footer>
--->
+
+<footer>
+	<p>Copyright (C)</p>
+</footer>
+
 
 </body>
 
