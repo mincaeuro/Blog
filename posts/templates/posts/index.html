@@ -95,7 +95,7 @@ footer {
 
 <ul class="menu">
 	{% if request.user.is_authenticated %}
-<li><a href="#" id="logoutBtn">Log out</a></li>
+<li><a href="/admin/logout/" id="logoutBtn">Log out</a></li>
 {% else %}
 <li><a href="#" id="loginBtn">Log in</a></li>
 <li><a href="#" id="signinBtn">Sign in</a></li>
