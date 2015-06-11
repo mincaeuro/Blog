@@ -35,3 +35,4 @@ class Komentar(models.Model):
 	user = models.CharField(max_length=50)
 	def was_published_recently(self):
 		return self.pub_date >= timezone.now() - datetime.timedelta(days=3)
+		
