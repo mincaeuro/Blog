@@ -1,9 +1,10 @@
-
+/*
 @media screen and (min-width : 1224px) {
 	body {
 	width:50%;
 	margin:0 auto;
 }
+*/
 
 html, body{
 	min-height: 100%;
@@ -39,6 +40,8 @@ footer {
 	font-family: arial;
 }
 
+
+
 .overlay{
 	position: fixed;
     top: 50%;
@@ -53,6 +56,7 @@ footer {
 	display:none;
 	
 	
+	
 }
 .overlay h4{
 	color: white;
@@ -60,6 +64,7 @@ footer {
 
 .hidden{
 	display:none;
+	
 }
 .close{
 	position: relative;
