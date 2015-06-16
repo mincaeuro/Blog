@@ -7,6 +7,12 @@
 
 <style>
 
+@media screen and (min-width : 1224px) {
+	body {
+	width:50%;
+	margin:0 auto;
+}
+
 html, body{
   min-height: 100%;
 }
@@ -97,12 +103,13 @@ footer {
 
 <ul class="menu">
 	{% if request.user.is_authenticated %}
-	<li><a href="#" id="newpostBtn">New Post</a></li>
-	<li><a href="/admin/logout/" id="logoutBtn">Log out</a></li>
+	<li><a href="#newCommFields" class="open">New Post</a></li>
 	<li><a href="/admin/" id="admBtn">Admin</a></li>
+	<li><a href="/admin/logout/" id="logoutBtn">Log out</a></li>
+	
 {% else %}
-	<li><a href="#" id="loginBtn">Log in</a></li>
-	<li><a href="#" id="signinBtn">Sign in</a></li>
+	<li><a href="#Loginfields" id="loginBtn" class="open">Log in</a></li>
+	<li><a href="#Regfields" id="signinBtn" class="open">Sign in</a></li>
 {% endif %}
 	</ul>
 
@@ -172,28 +179,24 @@ footer {
 </footer>
 
 <script>
-$("#loginBtn").click(function(){
+$(".open").click(function(){
 	$("div.overlay").fadeOut();
-    $("div#Loginfields").fadeIn();
+	var item = $(this).attr('href');
+    $(item).fadeIn();
+    return false;
+    
 	
 });
-
-$("#signinBtn").click(function(){
-	$("div.overlay").fadeOut();
-    $("div#Regfields").fadeIn();
-    
-});
-
-$("#newpostBtn").click(function(){
-	$("div.overlay").fadeOut();
-    $("div#newCommFields").fadeIn();
-    
-});
-
 $('.close').on("click", function () {
     $(this).parents('div').fadeOut();
 });
 
+$(document).keyup(function(e) {
+
+  if (e.keyCode == 27) { 
+							$("div.overlay").fadeOut();
+						}   
+});
 
 </script>
 
