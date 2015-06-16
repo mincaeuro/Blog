@@ -3,6 +3,8 @@
 <meta charset="utf-8">
 <title>Welcome</title>
 <meta name="description" content="Welcome">
+
+
 <style>
 
 html, body{
@@ -95,12 +97,13 @@ footer {
 
 <ul class="menu">
 	{% if request.user.is_authenticated %}
-<li><a href="/admin/logout/" id="logoutBtn">Log out</a></li>
+	<li><a href="#" id="newpostBtn">New Post</a></li>
+	<li><a href="/admin/logout/" id="logoutBtn">Log out</a></li>
 {% else %}
-<li><a href="#" id="loginBtn">Log in</a></li>
-<li><a href="#" id="signinBtn">Sign in</a></li>
+	<li><a href="#" id="loginBtn">Log in</a></li>
+	<li><a href="#" id="signinBtn">Sign in</a></li>
 {% endif %}
-</ul>
+	</ul>
 
 {% if posledne_prispevky %}
     <ul class="alt">
@@ -131,7 +134,7 @@ footer {
 <div id="Regfields" class="overlay hidden">
 	<p><a href="#" class="close">[X]</a></p>
 	<h4>Register:</h4>
-	<form method="post" action="self" id="Regform" name="Regform">
+	<form method="post" action="self" id="Regform" name="Regform">{% csrf_token %}
 	
 	<p><input type="text" name="fullname" placeholder="Full name"></p>
 	<p><input type="text" name="username" placeholder="User name"></p>
@@ -144,6 +147,24 @@ footer {
 
 
 </div>
+<div id="newCommFields" class="overlay hidden">
+	<p><a href="#" class="close">[X]</a></p>
+	<h4>New Post:</h4>
+	<form method="post" action="/admin/posts/prispevok/add/" enctype="multipart/form-data" id="newPostform" name="newPostform">{% csrf_token %}
+	
+	<p><input type="text" name="title" placeholder="Title" required></p>
+	<p><textarea name="text" placeholder="text" required></textarea></p>
+	<p><input type="date" name="pub_date_0" placeholder="Date" required></p>
+	<p><input type="time" name="pub_date_1" placeholder="Time" required></p>
+	<p><input type="text" name="user" placeholder="username" required></p>
+	<p><input type="file" name="image" placeholder="upload something nice"></p>
+	<p><input type="number" name="hodnotenie" placeholder="rate 1 - 5"></p>
+	
+	<button class="green">Post</button>
+	</form>
+
+
+</div>
 
 <footer>
 	<p>Copyright (C)</p>
@@ -151,11 +172,21 @@ footer {
 
 <script>
 $("#loginBtn").click(function(){
-    $("div#Loginfields").show();
+	$("div.overlay").fadeOut();
+    $("div#Loginfields").fadeIn();
+	
 });
 
 $("#signinBtn").click(function(){
-    $("div#Regfields").show();
+	$("div.overlay").fadeOut();
+    $("div#Regfields").fadeIn();
+    
+});
+
+$("#newpostBtn").click(function(){
+	$("div.overlay").fadeOut();
+    $("div#newCommFields").fadeIn();
+    
 });
 
 $('.close').on("click", function () {
