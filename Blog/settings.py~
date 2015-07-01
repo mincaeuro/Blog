@@ -31,12 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+	'material.admin',
 	'django.contrib.admin',
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
 	'django.contrib.sessions',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
+	'material',
+	'material.frontend',
 	'posts'
 )
 
@@ -100,7 +103,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_ROOT = "/home/user/Blog/"
+STATIC_ROOT = "/home/user/Blog/static/"
 STATIC_URL = '/static/'
 MEDIA_ROOT = "/home/user/Blog/"
 MEDIA_URL = "/photos/"
