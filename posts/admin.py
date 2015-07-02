@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Komentar, Prispevok
 
 
-class KomentPodPrispevkom(admin.StackedInline):
+class KomentPodPrispevkom(admin.TabularInline):
     model = Komentar
     extra = 0
 
